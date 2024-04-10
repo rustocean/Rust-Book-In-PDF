@@ -11,7 +11,7 @@ async function main() {
     let config = toml.parse(fs.readFileSync("./config.toml").toString())
 
     let browser = await chromium.launch({ headless: true })
-    let context = await browser.newContext()
+    let context = await browser.newContext({colorScheme: 'dark'})
     let page = await context.newPage()
 
     for (let book_key in config.Books) {
